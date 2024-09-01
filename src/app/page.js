@@ -86,14 +86,14 @@ const HomePage = () => {
       <div className="row">
         <div className="col-md-4 mb-4 d-flex">
           {/* Card for Ultrasonic & LED Ultrasonic */}
-          <div className="card flex-fill" style={{ backgroundColor: '#100258', color: '#000' }}>
+          <div className="card flex-fill" style={{ backgroundColor: '#100258', color: '#fff' }}>
             <div className="card-body d-flex flex-column">
-              <h5 className="card-title border border-dark p-2 rounded">volum & rgb_volum</h5>
+              <h5 className="card-title border border-light p-2 rounded">volum & rgb_volum</h5>
               <p className="card-text">
                 <strong>volum:</strong> {data[0]?.volum || 'Loading...'} Ohm
               </p>
               <p className="card-text">
-                <strong>rgb_volum:</strong> {data[0]?.rgb_volum || 'Loading...'}
+                <strong>RGB Volum On:</strong> {data[0]?.rgb_volum || 'Loading...'}
               </p>
             </div>
           </div>
@@ -101,14 +101,14 @@ const HomePage = () => {
 
         <div className="col-md-4 mb-4 d-flex">
           {/* Card for LDR & LED LDR Pin */}
-          <div className="card flex-fill" style={{ backgroundColor: '#100258', color: '#000' }}>
+          <div className="card flex-fill" style={{ backgroundColor: '#100258', color: '#fff' }}>
             <div className="card-body d-flex flex-column">
-              <h5 className="card-title border border-dark p-2 rounded">LDR & LED LDR Pin</h5>
+              <h5 className="card-title border border-light p-2 rounded">LDR & LED LDR Pin</h5>
               <p className="card-text">
                 <strong>LDR:</strong> {data[0]?.ldr || 'Loading...'} Lux
               </p>
               <p className="card-text">
-                <strong>LED LDR Pin Green:</strong> {data[0]?.led_ldr_pin || 'Loading...'}
+                <strong>LED LDR Pin Green On:</strong> {data[0]?.led_ldr_pin || 'Loading...'}
               </p>
             </div>
           </div>
@@ -116,9 +116,9 @@ const HomePage = () => {
 
         <div className="col-md-4 mb-4 d-flex">
           {/* Card for LED Status & Controls */}
-          <div className="card flex-fill" style={{ backgroundColor: '#100258', color: '#000' }}>
+          <div className="card flex-fill" style={{ backgroundColor: '#100258', color: '#fff' }}>
             <div className="card-body d-flex flex-column">
-              <h5 className="card-title border border-dark p-2 rounded">LED Status & Controls</h5>
+              <h5 className="card-title border border-light p-2 rounded">LED Status & Controls</h5>
               <p className="card-text">
                 <strong>LED Status Green:</strong>{" "}
                 {ledStatus !== null ? ledStatus : "Loading..."}
