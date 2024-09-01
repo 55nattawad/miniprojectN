@@ -90,7 +90,7 @@ const HomePage = () => {
             <div className="card-body d-flex flex-column">
               <h5 className="card-title border border-dark p-2 rounded">volum & rgb_volum</h5>
               <p className="card-text">
-                <strong>volum:</strong> {data[0]?.volum || 'Loading...'} cm
+                <strong>volum:</strong> {data[0]?.volum || 'Loading...'} Ohm
               </p>
               <p className="card-text">
                 <strong>rgb_volum:</strong> {data[0]?.rgb_volum || 'Loading...'}
@@ -105,7 +105,7 @@ const HomePage = () => {
             <div className="card-body d-flex flex-column">
               <h5 className="card-title border border-dark p-2 rounded">LDR & LED LDR Pin</h5>
               <p className="card-text">
-                <strong>LDR:</strong> {data[0]?.ldr || 'Loading...'}
+                <strong>LDR:</strong> {data[0]?.ldr || 'Loading...'} Lux
               </p>
               <p className="card-text">
                 <strong>LED LDR Pin Green:</strong> {data[0]?.led_ldr_pin || 'Loading...'}
