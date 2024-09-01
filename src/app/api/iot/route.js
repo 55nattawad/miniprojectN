@@ -25,12 +25,12 @@ export async function POST(request) {
     try {
         // Parse the request body as JSON
         const requestBody = await request.json();
-        const { ultrasonic, led_ultrasonic, ldr, led_ldr_pin } = requestBody;
+        const { volum, rgb_volum, ldr, led_ldr_pin } = requestBody;
 
         // Insert new data into the table
         const result = await client.query(
-            'INSERT INTO "PHU021" (ultrasonic, led_ultrasonic, ldr, led_ldr_pin) VALUES ($1, $2, $3, $4) RETURNING *',
-            [ultrasonic, led_ultrasonic, ldr, led_ldr_pin]
+            'INSERT INTO "NES007" (volum, rgb_volum, ldr, led_ldr_pin) VALUES ($1, $2, $3, $4) RETURNING *',
+            [volum, rgb_volum, ldr, led_ldr_pin]
         );
 
         return new Response(JSON.stringify(result.rows[0]), {
@@ -54,7 +54,7 @@ export async function POST(request) {
 export async function GET(request) {
     try {
         // Query the database for the latest led_status
-        const result = await client.query('SELECT led_status FROM "PHU021" WHERE id = 1 ORDER BY id DESC LIMIT 1');
+        const result = await client.query('SELECT led_status FROM "NES007" WHERE id = 1 ORDER BY id DESC LIMIT 1');
 
         if (result.rows.length === 0) {
             return new Response(JSON.stringify({ error: "No data found" }), {
@@ -92,7 +92,7 @@ export async function PUT(request) {
 
         // Update the led_status in the database
         const result = await client.query(
-            'UPDATE "PHU021" SET led_status = $1 WHERE id = 1  RETURNING *',
+            'UPDATE "NES007" SET led_status = $1 WHERE id = 1  RETURNING *',
             [led_status]
         );
 

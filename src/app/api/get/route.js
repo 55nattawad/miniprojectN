@@ -26,7 +26,7 @@ export async function GET() {
         // Query to get the latest data based on the timestamp
         const result = await client.query(`
             SELECT * 
-            FROM "PHU021"
+            FROM "NES007"
             ORDER BY "Date" DESC
             LIMIT 1
         `);

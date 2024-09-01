@@ -6,34 +6,43 @@ const HomePage = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [ledStatus, setLedStatus] = useState(null); // State for LED status
+  
+  const fetchData = async () => {
+    try {
+      const response = await fetch("/api/get");
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const result = await response.json();
+      setData(result);
+    } catch (error) {
+      setError(error);
+    }
+  };
+
+  const fetchLedStatus = async () => {
+    try {
+      const response = await fetch("/api/iot", {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+          // อื่นๆ หากจำเป็น
+        },
+        // credentials: 'include' // ใช้ถ้าคุณต้องการส่งคุกกี้หรือข้อมูลการยืนยันตัวตน
+      });
+      if (!response.ok) {
+        throw new Error("Failed to fetch LED status");
+      }
+      const ledData = await response.json();
+      setLedStatus(ledData.led_status);
+    } catch (error) {
+      console.error("Error fetching LED status:", error);
+      setError(error);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/api/get");
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const result = await response.json();
-        setData(result);
-      } catch (error) {
-        setError(error);
-      }
-    };
-
-    const fetchLedStatus = async () => {
-      try {
-        const response = await fetch("/api/iot");
-        if (!response.ok) {
-          throw new Error("Failed to fetch LED status");
-        }
-        const ledData = await response.json();
-        setLedStatus(ledData.led_status);
-      } catch (error) {
-        console.error("Error fetching LED status:", error);
-        setError(error);
-      }
-    };
+    
 
     fetchData();
     fetchLedStatus();
@@ -79,12 +88,12 @@ const HomePage = () => {
           {/* Card for Ultrasonic & LED Ultrasonic */}
           <div className="card flex-fill" style={{ backgroundColor: '#ffcc00', color: '#000' }}>
             <div className="card-body d-flex flex-column">
-              <h5 className="card-title border border-dark p-2 rounded">Ultrasonic & LED Ultrasonic</h5>
+              <h5 className="card-title border border-dark p-2 rounded">volum & rgb_volum</h5>
               <p className="card-text">
-                <strong>Ultrasonic:</strong> {data[0]?.ultrasonic || 'Loading...'} cm
+                <strong>Ultrasonic:</strong> {data[0]?.volum || 'Loading...'} cm
               </p>
               <p className="card-text">
-                <strong>LED Ultrasonic Red:</strong> {data[0]?.led_ultrasonic || 'Loading...'}
+                <strong>LED Ultrasonic Red:</strong> {data[0]?.rgb_volum || 'Loading...'}
               </p>
             </div>
           </div>
