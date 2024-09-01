@@ -86,7 +86,7 @@ const HomePage = () => {
       <div className="row">
         <div className="col-md-4 mb-4 d-flex">
           {/* Card for Ultrasonic & LED Ultrasonic */}
-          <div className="card flex-fill" style={{ backgroundColor: '#ffcc00', color: '#000' }}>
+          <div className="card flex-fill" style={{ backgroundColor: '#100258', color: '#000' }}>
             <div className="card-body d-flex flex-column">
               <h5 className="card-title border border-dark p-2 rounded">volum & rgb_volum</h5>
               <p className="card-text">
@@ -101,7 +101,7 @@ const HomePage = () => {
 
         <div className="col-md-4 mb-4 d-flex">
           {/* Card for LDR & LED LDR Pin */}
-          <div className="card flex-fill" style={{ backgroundColor: '#ffcc00', color: '#000' }}>
+          <div className="card flex-fill" style={{ backgroundColor: '#100258', color: '#000' }}>
             <div className="card-body d-flex flex-column">
               <h5 className="card-title border border-dark p-2 rounded">LDR & LED LDR Pin</h5>
               <p className="card-text">
@@ -116,7 +116,7 @@ const HomePage = () => {
 
         <div className="col-md-4 mb-4 d-flex">
           {/* Card for LED Status & Controls */}
-          <div className="card flex-fill" style={{ backgroundColor: '#ffcc00', color: '#000' }}>
+          <div className="card flex-fill" style={{ backgroundColor: '#100258', color: '#000' }}>
             <div className="card-body d-flex flex-column">
               <h5 className="card-title border border-dark p-2 rounded">LED Status & Controls</h5>
               <p className="card-text">
