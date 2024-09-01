@@ -6,7 +6,7 @@ const HomePage = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [ledStatus, setLedStatus] = useState(null); // State for LED status
-  
+
   const fetchData = async () => {
     try {
       const response = await fetch("/api/get");
@@ -90,10 +90,10 @@ const HomePage = () => {
             <div className="card-body d-flex flex-column">
               <h5 className="card-title border border-dark p-2 rounded">volum & rgb_volum</h5>
               <p className="card-text">
-                <strong>Ultrasonic:</strong> {data[0]?.volum || 'Loading...'} cm
+                <strong>volum:</strong> {data[0]?.volum || 'Loading...'} cm
               </p>
               <p className="card-text">
-                <strong>LED Ultrasonic Red:</strong> {data[0]?.rgb_volum || 'Loading...'}
+                <strong>rgb_volum:</strong> {data[0]?.rgb_volum || 'Loading...'}
               </p>
             </div>
           </div>
@@ -108,7 +108,7 @@ const HomePage = () => {
                 <strong>LDR:</strong> {data[0]?.ldr || 'Loading...'}
               </p>
               <p className="card-text">
-                <strong>LED LDR Pin Yellow:</strong> {data[0]?.led_ldr_pin || 'Loading...'}
+                <strong>LED LDR Pin Green:</strong> {data[0]?.led_ldr_pin || 'Loading...'}
               </p>
             </div>
           </div>
@@ -128,13 +128,13 @@ const HomePage = () => {
                   className="btn btn-primary"
                   onClick={() => handleUpdate(data[0]?.id, 0)}
                 >
-                  Set LED Status to 0
+                  Set LED Status to Off
                 </button>
                 <button
                   className="btn btn-success"
                   onClick={() => handleUpdate(data[0]?.id, 1)}
                 >
-                  Set LED Status to 1
+                  Set LED Status to On
                 </button>
               </div>
             </div>
